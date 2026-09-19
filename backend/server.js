@@ -12,14 +12,7 @@ require("dotenv").config();
 const app = express();
 
 app.use(cors({
-  origin: (origin, callback) => {
-    // allow non-browser tools (no origin) and any localhost / 127.0.0.1 port
-    if (!origin || /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
-      return callback(null, true);
-    }
-    if (origin === process.env.FRONTEND_URL) return callback(null, true);
-    callback(new Error("Not allowed by CORS"));
-  }
+  origin: process.env.FRONTEND_URL || "*"
 }));
 app.use(express.json());
 
