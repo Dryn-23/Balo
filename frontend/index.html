@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Valorant Character Select Animation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://public.codepenassets.com/css/reset-2.0.min.css">
+<link rel="stylesheet" href="style.css">
+
+  </head>
+
+  <body>
+    <nav class="top-nav">
+      <div class="top-nav__brand">BALORANT</div>
+        <ul class="top-nav__links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#cards">Agents</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#related">Related</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+      <canvas id="gradient"></canvas>
+    <div class="agent-container">
+      <img src="" class="agent-fb" id="main-agent">
+      <img src="" class="agent-fb agent-fb-S" id="main-agent-s">
+      <img src="" class="agent-fb agent-fb-B" id="main-agent-b">
+    </div>
+    <div class="stats-panel">
+      <div class="stat-row">
+        <span class="stat-label">Intel</span>
+        <div class="stat-bar"><div class="stat-bar-fill" data-stat="intel"></div></div>
+        <span class="stat-value" data-stat="intel">0</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Stealth</span>
+        <div class="stat-bar"><div class="stat-bar-fill" data-stat="stealth"></div></div>
+        <span class="stat-value" data-stat="stealth">0</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Control</span>
+        <div class="stat-bar"><div class="stat-bar-fill" data-stat="control"></div></div>
+        <span class="stat-value" data-stat="control">0</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Utility</span>
+        <div class="stat-bar"><div class="stat-bar-fill" data-stat="utility"></div></div>
+        <span class="stat-value" data-stat="utility">0</span>
+      </div>
+    </div>
+    <div class="text-master">
+
+      <div></div>
+      <div class="text-wrap">
+        <p class="hero hero-role" id="hero-role"></p>
+        <h1 class="hero hero-name" id="hero-name"></h1>
+        <p class="hero hero-desc" id="hero-desc"></p>
+      </div>
+    </div>
+
+    <div class="names-bg">
+      <p class="hero hero-name bg"></p>
+      <p class="hero hero-name bg"></p>
+      <p class="hero hero-name bg"></p>
+      <p class="hero hero-name bg"></p>
+      <p class="hero hero-name bg"></p>
+      <p class="hero hero-name bg"></p>
+      <p class="hero hero-name bg"></p>
+    </div>
+
+    <div class="nav">
+      <div class="portrait-container">
+      <img src="" alt="" data-agent="Maratas">
+      <img src="" alt="" data-agent="Garin">
+      <img src="" alt="" data-agent="SanJuan">
+      <img src="" alt="" data-agent="Pat">
+      <img src="" alt="" data-agent="Manansala">
+    </div>
+    </div>
+
+  </header>
+<div class="cards" id="cards">
+  <h2 class="cards__title">AGENTS</h2>
+  <div class="cards__grid">
+
+    <div class="cards__item cards__item--clr4">
+      <div class="cards__price">1</div>
+      <div class="cards__name">DENMARK MARATAS</div>
+      <div class="cards__product"><img src="images/Maratas.png" alt="Denmark Maratas"></div>
+      <div class="cards__info">
+        <p>Role: Documentation</p>
+        <p>A sharp eye for detail and clean structure.</p>
+      </div>
+    </div>
+    <div class="cards__item cards__item--clr1">
+      <div class="cards__price">2</div>
+      <div class="cards__name">EDRIAN GARIN</div>
+      <div class="cards__product"><img src="images/Garin.png" alt="Edrian Garin"></div>
+      <div class="cards__info">
+        <p>Role: Backend</p>
+        <p>A sharp eye for detail and clean structure.</p>
+      </div>
+    </div>
+    <div class="cards__item cards__item--clr2">
+      
+      <div class="cards__name">ROMEJAY SANJUAN</div>
+      <div class="cards__product"><img src="images/SanJuan.png" alt="Romejay SanJuan"></div>
+      <div class="cards__price">3</div>
+      <div class="cards__info">
+        <p>Role: Frontend UX/UI</p>
+        <p>A sharp eye for detail and clean structure.</p>
+      </div>
+    </div>
+    <div class="cards__item cards__item--clr3">
+      
+      <div class="cards__name">KYLE JUSTIN PAT</div>
+      <div class="cards__product"><img src="images/Pat.png" alt="Kyle Justin Pat"></div>
+      <div class="cards__price">4</div>
+      <div class="cards__info">
+        <p>Role: Backend</p>
+        <p>A sharp eye for detail and clean structure.</p>
+      </div>
+    </div>
+    <div class="cards__item cards__item--clr4">
+      <div class="cards__price">5</div>
+      <div class="cards__name">ELBERT MANANSALA</div>
+      <div class="cards__product"><img src="images/Manansala.png" alt="Elbert Manansala"></div>
+      <div class="cards__info">
+        <p>Role: Documentation</p>
+        <p>A sharp eye for detail and clean structure.</p>
+      </div>
+    </div>
+
+  <div class="roster-info">
+    <div class="roster-info__text">
+      <h3>Built by a five agent squad</h3>
+      <p>
+        Every agent on this roster brings a different specialization 
+        from documentation to backend logic to frontend polish combining
+        into one coordinated build.
+      </p>
+    </div>
+    <div class="roster-info__stats">
+      <div class="roster-stat">
+        <span class="roster-stat__num">5</span>
+        <span class="roster-stat__label">Agents</span>
+      </div>
+      <div class="roster-stat">
+        <span class="roster-stat__num">3</span>
+        <span class="roster-stat__label">Roles</span>
+      </div>
+      <div class="roster-stat">
+        <span class="roster-stat__num">100%</span>
+        <span class="roster-stat__label">Custom Build</span>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<section class="about" id="about">
+  <h2 class="about__title">About Us</h2>
+
+  <div class="about__carousel">
+    <button class="about__arrow about__arrow--left" id="aboutPrev" aria-label="Previous member">&#10094;</button>
+
+    <div class="about__slide" id="aboutSlide">
+      <div class="about__bg" id="aboutBg"></div>
+      <div class="about__overlay">
+        <p class="about__role" id="aboutRole"></p>
+        <h3 class="about__name" id="aboutName"></h3>
+        <p class="about__desc" id="aboutDesc"></p>
+      </div>
+    </div>
+
+    <button class="about__arrow about__arrow--right" id="aboutNext" aria-label="Next member">&#10095;</button>
+  </div>
+
+  <div class="about__dots" id="aboutDots"></div>
+</section>
+
+<section class="related" id="related">
+  <h2 class="related__title">RELATED ARTICLES</h2>
+  <div class="related__grid">
+
+    <article class="related__card">
+      <a href="#cards" class="related__media" style="background-image:url('images/Garin4.png');">
+        <span class="related__share" aria-hidden="true">&#8599;</span>
+      </a>
+      <div class="related__body">
+        <div class="related__meta">
+          <span class="related__tag related__tag--backend">BACKEND</span>
+          <span class="related__date">9/17/2026</span>
+        </div>
+        <h3 class="related__headline">Meet Edrian Garin</h3>
+        <p class="related__desc">The logic behind Balorant's backend, keeping every agent swap running smoothly.</p>
+      </div>
+    </article>
+
+    <article class="related__card">
+      <a href="#about" class="related__media" style="background-image:url('images/SanJuan2.png');">
+        <span class="related__share" aria-hidden="true">&#8599;</span>
+      </a>
+      <div class="related__body">
+        <div class="related__meta">
+          <span class="related__tag related__tag--frontend">FRONTEND UX/UI</span>
+          <span class="related__date">9/16/2026</span>
+        </div>
+        <h3 class="related__headline">Designing the Character Select</h3>
+        <p class="related__desc">A look at how Romejay SanJuan shaped the hero animation and layout.</p>
+      </div>
+    </article>
+
+    <article class="related__card">
+      <a href="#about" class="related__media" style="background-image:url('images/Maratas2.png');">
+        <span class="related__share" aria-hidden="true">&#8599;</span>
+      </a>
+      <div class="related__body">
+        <div class="related__meta">
+          <span class="related__tag related__tag--docs">DOCUMENTATION</span>
+          <span class="related__date">9/16/2026</span>
+        </div>
+        <h3 class="related__headline">Inside the Build Notes</h3>
+        <p class="related__desc">Denmark Maratas walks through how the squad kept the project documented end to end.</p>
+      </div>
+    </article>
+    
+
+  </div>
+</section>
+
+<footer class="footer" id="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="#home" class="footer__logo">BALORANT</a>
+      <p class="footer__tagline">Meet the five-agent squad behind this build.</p>
+    </div>
+
+    <nav class="footer__col" aria-label="Footer">
+      <h2 class="footer__heading">Explore</h2>
+      <ul class="footer__links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#cards">Agents</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__col">
+      <h2 class="footer__heading">The squad</h2>
+      <!-- Filled in by script.js from the aboutData list -->
+      <ul class="footer__squad" id="footerSquad"></ul>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p class="footer__legal">&copy; <span id="footerYear">2026</span> Balorant Squad. Fan-made and not affiliated with Riot Games.</p>
+    <a href="#home" class="footer__top">
+      Back to top
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M7 12.5V2M2.5 6.5 7 2l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+    </a>
+  </div>
+
+  <div class="footer__watermark" aria-hidden="true">BALORANT</div>
+</footer>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js'></script><script  src="script.js"></script>
+  </body>
+
+</html>

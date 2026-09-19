@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Arimo:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+
+  <main class="panel">
+    <div class="panel__slash"></div>
+
+    <div class="panel__brand">
+      <span class="panel__brand-mark">//</span>
+      <span class="panel__brand-name">BALORANT</span>
+    </div>
+
+    <div class="panel__body">
+
+      <section class="view" id="loginView">
+        <p class="view__eyebrow">Agent Access</p>
+        <h1 class="view__title">Sign In</h1>
+
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" autocomplete="current-password" required>
+          </div>
+
+          <button type="submit" class="btn">
+            <span>Login</span>
+          </button>
+
+          <p class="msg" id="message"></p>
+        </form>
+
+        <p class="switch">No account yet? <a href="#" id="showRegister">Create one</a></p>
+      </section>
+
+      <section class="view hidden" id="registerView">
+        <p class="view__eyebrow">New Recruit</p>
+        <h1 class="view__title">Create Account</h1>
+
+        <form id="registerForm" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="regPassword">Password</label>
+            <input type="password" id="regPassword" autocomplete="new-password">
+          </div>
+
+          <button type="submit" class="btn">
+            <span>Register</span>
+          </button>
+
+          <p class="msg" id="registerMessage"></p>
+        </form>
+
+        <p class="switch">Already an agent? <a href="#" id="showLogin">Sign in</a></p>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
