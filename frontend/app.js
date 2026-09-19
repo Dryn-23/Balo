@@ -1,4 +1,4 @@
-const API_URL = "https://balo-4.onrender.com";
+const API_URL = "https://balo-5.onrender.com";
 
 const loginView = document.getElementById("loginView");
 const registerView = document.getElementById("registerView");
