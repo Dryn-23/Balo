@@ -104,9 +104,9 @@ const agentInformations = {
     Pat: {
         role: "Backend",
         description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia..",
-        fullBody: "images/Pat2.png",
-        fullBody_s: "images/Pat2.png",
-        fullBody_b: "images/Pat2.png",
+        fullBody: "images/Pat3.png",
+        fullBody_s: "images/Pat3.png",
+        fullBody_b: "images/Pat3.png",
         portrait: "images/Pat.png",
         gradientName: "gekko-state",
         gradientDirection: "diagonal",
@@ -448,7 +448,7 @@ if (footerSquad) {
         const name = document.createElement("span");
         const role = document.createElement("span");
 
-        link.href = "#about";
+        link.href = "#about";\1
         link.dataset.role = member.role; // styles.css colors the marker by role
         name.className = "footer__member-name";
         name.textContent = member.name;
