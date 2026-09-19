@@ -1,4 +1,47 @@
 "use strict";
+
+/* ===== Auth / Profile ===== */
+const API_URL = "http://localhost:5000";
+const token = localStorage.getItem("token");
+
+function redirectToLogin() {
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
+}
+
+function initAuth() {
+    if (!token) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    const welcome = document.getElementById("welcome");
+    const logoutBtn = document.getElementById("logout");
+
+    fetch(`${API_URL}/api/profile`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+        .then((response) => {
+            if (!response.ok) throw new Error("Unauthorized");
+            return response.json();
+        })
+        .then((data) => {
+            if (welcome) {
+                welcome.textContent = `Welcome, ${data.user.name} (${data.user.email})`;
+            }
+        })
+        .catch(() => {
+            redirectToLogin();
+        });
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", redirectToLogin);
+    }
+}
+
+initAuth();
 const mainAgentImage = document.getElementById("main-agent");
 const mainAgentImageOverlayShort = document.getElementById("main-agent-s");
 const mainAgentImageOverlayBig = document.getElementById("main-agent-b");
