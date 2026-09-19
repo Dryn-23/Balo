@@ -1,7 +1,7 @@
 "use strict";
 
 /* ===== Auth / Profile ===== */
-const API_URL = "https://balo-2.onrender.com";
+const API_URL = "https://balo-4.onrender.com/";
 const token = localStorage.getItem("token");
 
 function redirectToLogin() {
