@@ -94,9 +94,9 @@ const agentInformations = {
         // fullBody: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/eb16463e6cf4e0f2b091c0dbc9d94f3cbfffcadb/clove-fb.png",
         // fullBody_s: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/eb16463e6cf4e0f2b091c0dbc9d94f3cbfffcadb/clove-fb-S.png",
         // fullBody_b: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/eb16463e6cf4e0f2b091c0dbc9d94f3cbfffcadb/clove-fb-B.png",
-        fullBody: "images/SanJuan2.png",
-        fullBody_s: "images/SanJuan2.png",
-        fullBody_b: "images/SanJuan2.png",
+        fullBody: "images/SanJuan3.png",
+        fullBody_s: "images/SanJuan3.png",
+        fullBody_b: "images/SanJuan3.png",
         portrait: "images/SanJuan.png",
         gradientName: "clove-state",
         gradientDirection: "custom",
@@ -472,7 +472,7 @@ if (footerSquad) {
 /* ===== Gallery + Lightbox ===== */
 // Edit this list to change the gallery. size: "big" (2x2), "tall" (1x2) or leave out for a square.
 const galleryData = [
-    { src: "images/Maratas3.png",   name: "Denmark Maratas",  role: "Documentation",  size: "big"  },
+    { src: "images/Gallery1.png",   name: "Denmark Maratas",  role: "Documentation",  size: "big"  },
     { src: "images/Garin4.png",     name: "Edrian Garin",     role: "Backend",        size: "tall" },
     { src: "images/SanJuan2.png",   name: "Romejay SanJuan",  role: "Frontend UX/UI" },
     { src: "images/Pat4.png",       name: "Kyle Justin Pat",  role: "Backend" },
