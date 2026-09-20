@@ -514,16 +514,16 @@ const galleryData = [
     { src: "images/Gallery7.png",   },
     { src: "images/Gallery8.png",   },
     { src: "images/Gallery9.png",   },
-        { src: "images/Gallery1.png",   size: "big"  },
-    { src: "images/Gallery5.png",         size: "big" },
-    { src: "images/Gallery6.png" },
-    { src: "images/Gallery2.png",       name: "Kyle Justin Pat",  role: "Backend" },
-    { src: "images/Gallery3.png", size: "tall" },
-    { src: "images/Gallery4.png", size: "big"  },
-    { src: "images/About_Us1.png",  },
-    { src: "images/Gallery7.png",   },
-    { src: "images/Gallery8.png",   },
-    { src: "images/Gallery9.png",   }
+        { src: "images/Gallery10.png",   size: "big"  },
+    { src: "images/Gallery12.png",         size: "big" },
+    { src: "images/Gallery11.png" },
+    { src: "images/Pat4.png",       name: "Kyle Justin Pat",  role: "Backend" },
+    { src: "images/Gallery15.png",   name: "Kyle Justin Pat",  role: "Backend", size: "tall" },
+    { src: "images/Gallery14.png", size: "big"  },
+    { src: "images/Gallery16.png",  },
+    { src: "images/Gallery13.png",   },
+    { src: "images/Gallery17.png",   },
+    { src: "images/Gallery18.png",   }
 ];
 
 const roleColors = {
