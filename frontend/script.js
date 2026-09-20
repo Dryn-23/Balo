@@ -473,7 +473,7 @@ if (footerSquad) {
 // Edit this list to change the gallery. size: "big" (2x2), "tall" (1x2) or leave out for a square.
 const galleryData = [
     { src: "images/Gallery1.png",   size: "big"  },
-    { src: "images/Gallery4.png",         size: "big" },
+    { src: "images/Gallery5.png",         size: "big" },
     { src: "images/Gallery6.png" },
     { src: "images/Gallery2.png",       name: "Kyle Justin Pat",  role: "Backend" },
     { src: "images/Gallery3.png", size: "tall" },
