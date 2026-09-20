@@ -647,24 +647,24 @@ buildGallery();
 // Edit this list to change the timeline. "role" picks the color:
 // Documentation (pink), Backend (green), Frontend UX/UI (blue). Leave role out for a neutral color.
 const timelineData = [
-    { date: "2024", title: "1ST SEMESTER",
+    { date: "Week 1", title: "Squad Assembled",
       desc: "The five agents are picked, roles are assigned and the project scope is written down.",
-      owner: "1ST YEAR", role: "FRESHMAN" },
-    { date: "2025", title: "2ND SEMESTER",
+      owner: "Denmark Maratas", role: "Documentation" },
+    { date: "Week 2", title: "Backend & Login",
       desc: "Register and login API, token authentication and the database go live.",
-      owner: "1ST YEAR", role: "Backend" },
-    { date: "2025", title: "1ST SEMESTER",
+      owner: "Edrian Garin", role: "Backend" },
+    { date: "Week 3", title: "Character Select",
       desc: "The hero animation, agent stats and portrait bar come together.",
-      owner: "2ND YEAR", role: "Frontend UX/UI" },
-    { date: "2025", title: "2ND SEMESTER",
+      owner: "Romejay SanJuan", role: "Frontend UX/UI" },
+    { date: "Week 4", title: "Connecting the Pieces",
       desc: "The frontend talks to the server, profiles load and sessions are handled.",
-      owner: "2ND YEAR", role: "Backend" },
-    { date: "2026", title: "1ST SEMESTER",
+      owner: "Kyle Justin Pat", role: "Backend" },
+    { date: "Week 5", title: "Docs & Polish",
       desc: "Build notes, the gallery and About Us are finished and everything is tested on phones.",
-      owner: "3RD YEAR", role: "Documentation" },
-    { date: "2026", title: "2ND SEMESTER",
+      owner: "Elbert Manansala", role: "Documentation" },
+    { date: "Launch", title: "Balorant Goes Live",
       desc: "The full squad ships the finished build.",
-      owner: "3RD YEAR", role: "Backend" }
+      owner: "Balorant Squad" }
 ];
 
 (function buildTimeline() {
