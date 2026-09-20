@@ -128,6 +128,38 @@ const agentInformations = {
         stats: { intel: 90, stealth: 75, control: 40, utility: 65 }
     }
 };
+
+/* ===== Mobile burger menu ===== */
+const topNav = document.querySelector(".top-nav");
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
+
+function setMenu(open) {
+    topNav.classList.toggle("is-open", open);
+    document.documentElement.classList.toggle("menu-open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+
+navToggle.addEventListener("click", () => {
+    setMenu(!topNav.classList.contains("is-open"));
+});
+
+// Close the menu after tapping a link or the logout button
+navLinks.addEventListener("click", (event) => {
+    if (event.target.closest("a, button")) setMenu(false);
+});
+
+// Esc closes it
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenu(false);
+});
+
+// If the window is resized back to desktop width, reset the menu
+window.matchMedia("(min-width: 769px)").addEventListener("change", (event) => {
+    if (event.matches) setMenu(false);
+});
+
 var currentAgentNumber = 1;
 function updateHero() {
     mainAgentImage.src = agentInformations[agentOrder[currentAgentNumber]].fullBody;

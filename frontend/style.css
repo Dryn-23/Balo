@@ -159,6 +159,109 @@ html, body {
   }
 }
 
+/* Burger button (hidden on desktop, shown in the mobile media query below) */
+.top-nav__burger {
+  display: none;
+  position: relative;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.top-nav__burger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #eaeeb2;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* burger turns into an X */
+.top-nav.is-open .top-nav__burger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.top-nav.is-open .top-nav__burger span:nth-child(2) { opacity: 0; }
+.top-nav.is-open .top-nav__burger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* stop the page scrolling behind the open menu */
+html.menu-open,
+html.menu-open body {
+  overflow: hidden;
+}
+
+/* ===== Mobile burger menu ===== */
+@media screen and (max-width: 768px) {
+  .top-nav__burger {
+    display: flex;
+  }
+
+  /* keep the logo visible above the open menu */
+  .top-nav__brand {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* the link list becomes a full-screen panel that slides in from the right */
+  .top-nav__links {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+    padding: 80px 24px 40px;
+    background: rgba(8, 19, 29, 0.96);
+    backdrop-filter: blur(12px);
+    transform: translateX(100%);
+    visibility: hidden; /* keeps hidden links out of tab order */
+    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), visibility 0.4s;
+  }
+
+  .top-nav.is-open .top-nav__links {
+    transform: none;
+    visibility: visible;
+  }
+
+  .top-nav__links a {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+    opacity: 1;
+  }
+
+  /* links fade up one after another */
+  .top-nav__links li {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .top-nav.is-open .top-nav__links li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .top-nav.is-open .top-nav__links li:nth-child(1) { transition-delay: 0.15s; }
+  .top-nav.is-open .top-nav__links li:nth-child(2) { transition-delay: 0.20s; }
+  .top-nav.is-open .top-nav__links li:nth-child(3) { transition-delay: 0.25s; }
+  .top-nav.is-open .top-nav__links li:nth-child(4) { transition-delay: 0.30s; }
+  .top-nav.is-open .top-nav__links li:nth-child(5) { transition-delay: 0.35s; }
+  .top-nav.is-open .top-nav__links li:nth-child(6) { transition-delay: 0.40s; }
+
+  .top-nav__logout {
+    font-size: 1rem;
+    padding: 12px 32px;
+    margin-top: 10px;
+  }
+}
+
 /* ===== Header / Hero ===== */
 header {
   position: relative;

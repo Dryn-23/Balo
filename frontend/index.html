@@ -17,18 +17,23 @@
   </head>
 
   <body>
-    <nav class="top-nav">
-      <div class="top-nav__brand">BALORANT</div>
-        <ul class="top-nav__links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#cards">Agents</a></li>
-          <li><a href="#about">About</a></li>
-          <!-- <li><a href="#related">Related</a></li> -->
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#footer">Contact</a></li>
-          <li><button type="button" id="logout" class="top-nav__logout">Logout</button></li>
-        </ul>
-    </nav>
+<nav class="top-nav">
+  <div class="top-nav__brand">BALORANT</div>
+
+  <button class="top-nav__burger" id="navToggle" type="button"
+          aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="top-nav__links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#cards">Agents</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#footer">Contact</a></li>
+    <li><button type="button" id="logout" class="top-nav__logout">Logout</button></li>
+  </ul>
+</nav>
 
     <header id="home">
       <canvas id="gradient"></canvas>
