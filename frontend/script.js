@@ -513,6 +513,16 @@ const galleryData = [
     { src: "images/About_Us1.png",  },
     { src: "images/Gallery7.png",   },
     { src: "images/Gallery8.png",   },
+    { src: "images/Gallery9.png",   },
+        { src: "images/Gallery1.png",   size: "big"  },
+    { src: "images/Gallery5.png",         size: "big" },
+    { src: "images/Gallery6.png" },
+    { src: "images/Gallery2.png",       name: "Kyle Justin Pat",  role: "Backend" },
+    { src: "images/Gallery3.png", size: "tall" },
+    { src: "images/Gallery4.png", size: "big"  },
+    { src: "images/About_Us1.png",  },
+    { src: "images/Gallery7.png",   },
+    { src: "images/Gallery8.png",   },
     { src: "images/Gallery9.png",   }
 ];
 
