@@ -478,8 +478,9 @@ const galleryData = [
     { src: "images/Gallery2.png",       name: "Kyle Justin Pat",  role: "Backend" },
     { src: "images/Gallery3.png", size: "tall" },
     { src: "images/Gallery4.png", size: "big"  },
-    { src: "images/About_Us1.png",  name: "Edrian Garin",     role: "Backend" },
-    { src: "images/SanJuan.png",    name: "Romejay SanJuan",  role: "Frontend UX/UI" }
+    { src: "images/About_Us1.png",  },
+    { src: "images/Gallery7.png",   },
+    { src: "images/Gallery8.png",   }
 ];
 
 const roleColors = {
