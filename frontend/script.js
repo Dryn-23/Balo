@@ -475,8 +475,8 @@ const galleryData = [
     { src: "images/Gallery1.png",   name: "Denmark Maratas",  role: "Documentation",  size: "big"  },
     { src: "images/Garin4.png",     name: "Edrian Garin",     role: "Backend",        size: "tall" },
     { src: "images/SanJuan2.png",   name: "Romejay SanJuan",  role: "Frontend UX/UI" },
-    { src: "images/Pat4.png",       name: "Kyle Justin Pat",  role: "Backend" },
-    { src: "images/Pat2.png",       name: "Kyle Justin Pat",  role: "Backend",        size: "tall" },
+    { src: "images/Gallery2.png",       name: "Kyle Justin Pat",  role: "Backend" },
+    { src: "images/Gallery3.png", size: "tall" },
     { src: "images/Manansala2.png", name: "Elbert Manansala", role: "Documentation",  size: "big"  },
     { src: "images/About_Us1.png",  name: "Edrian Garin",     role: "Backend" },
     { src: "images/SanJuan.png",    name: "Romejay SanJuan",  role: "Frontend UX/UI" }
