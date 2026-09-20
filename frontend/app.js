@@ -47,6 +47,7 @@ loginForm.addEventListener("submit", async (e) => {
     }
 
     sessionStorage.setItem("token", data.token);
+    sessionStorage.setItem("justLoggedIn", "1");
     window.location.href = "index.html";
   } catch (error) {
     setMessage(message, "Cannot connect to the server.");
