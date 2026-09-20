@@ -67,7 +67,7 @@ const rolesDescription = {
 const agentInformations = {
     Maratas: {
         role: "Documentation",
-        description: "    gegegegegegegegegegegegegegegegegegegegege.",
+        description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia.",
         fullBody: "images/Maratas2.png",
         fullBody_s: "images/Maratas2.png",
         fullBody_b: "images/Maratas2.png",
