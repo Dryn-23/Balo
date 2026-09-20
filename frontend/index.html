@@ -271,7 +271,14 @@
   </figure>
   <button class="lightbox__arrow lightbox__arrow--right" id="lbNext" aria-label="Next image">&#10095;</button>
 </div>
-
+<div class="socials" id="socials" role="dialog" aria-modal="true" aria-labelledby="socialsName" aria-hidden="true">
+  <div class="socials__card" id="socialsCard">
+    <button type="button" class="socials__close" id="socialsClose" aria-label="Close">&times;</button>
+    <p class="socials__role" id="socialsRole"></p>
+    <h3 class="socials__name" id="socialsName"></h3>
+    <ul class="socials__links" id="socialsLinks"></ul>
+  </div>
+</div>
 <footer class="footer" id="footer">
   <div class="footer__inner">
     <div class="footer__brand">
