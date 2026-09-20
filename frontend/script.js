@@ -650,3 +650,130 @@ document.addEventListener("keydown", (event) => {
 });
 
 buildGallery();
+
+/* ===== Login intro animation ===== */
+(function playLoginIntro() {
+    const root = document.documentElement;
+    const intro = document.getElementById("intro");
+    const fromLogin = sessionStorage.getItem("justLoggedIn") === "1";
+    sessionStorage.removeItem("justLoggedIn"); // only plays once per login
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!intro || !fromLogin || !token || reduceMotion) {
+        root.classList.remove("intro-pending");
+        return;
+    }
+
+    let done = false;
+    const timers = [];
+    const counters = [];
+
+    // split the wordmark into letters so they slide up one by one
+    const logo = document.getElementById("introLogo");
+    const word = logo.textContent.trim();
+    logo.textContent = "";
+    [...word].forEach((ch) => {
+        const wrap = document.createElement("span");
+        wrap.className = "intro__letter-wrap";
+        const letter = document.createElement("span");
+        letter.className = "intro__letter";
+        letter.textContent = ch;
+        wrap.appendChild(letter);
+        logo.appendChild(wrap);
+    });
+
+    // stat bars start empty and fill up (with a number count-up) during the reveal
+    const statRows = [...document.querySelectorAll(".stat-row")].map((row) => {
+        const fill = row.querySelector(".stat-bar-fill");
+        const value = row.querySelector(".stat-value");
+        return {
+            fill,
+            value,
+            width: fill.style.width,
+            target: parseInt(value.textContent, 10) || 0
+        };
+    });
+    statRows.forEach((s) => {
+        s.fill.style.transition = "none";
+        s.fill.style.width = "0%";
+        s.value.textContent = "0";
+    });
+
+    function playStats() {
+        statRows.forEach((s, i) => {
+            timers.push(setTimeout(() => {
+                if (done) return;
+                s.fill.style.transition = "width 0.9s cubic-bezier(0.2, 0.7, 0.2, 1)";
+                s.fill.style.width = s.width;
+                const counter = { n: 0 };
+                counters.push(anime({
+                    targets: counter,
+                    n: s.target,
+                    round: 1,
+                    duration: 900,
+                    easing: "easeOutExpo",
+                    update: () => { s.value.textContent = counter.n; }
+                }));
+            }, i * 120));
+        });
+    }
+
+    function finish() {
+        if (done) return;
+        done = true;
+        tl.pause();
+        timers.forEach(clearTimeout);
+        counters.forEach((c) => c.pause());
+        root.classList.remove("intro-pending");
+        intro.classList.add("is-done");
+        // clear the inline styles the animation left behind
+        document.querySelectorAll(
+            ".top-nav, .agent-container, .text-wrap > *, .stats-panel .stat-row, .portrait-container"
+        ).forEach((el) => {
+            el.style.opacity = "";
+            el.style.transform = "";
+        });
+        statRows.forEach((s) => { s.fill.style.transition = ""; });
+        updateStats(); // make sure the bars match the current agent
+    }
+
+    const tl = anime.timeline({ easing: "easeOutExpo", complete: finish });
+
+    tl
+        // --- intro screen ---
+        .add({ targets: ".intro__sweep", translateX: ["0%", "800%"], duration: 1300, easing: "easeInOutQuad" }, 0)
+        .add({ targets: ".intro__kicker", opacity: [0, 1], translateY: [10, 0], duration: 600 }, 100)
+        .add({ targets: ".intro__letter", translateY: ["110%", "0%"], duration: 900, delay: anime.stagger(70) }, 200)
+        .add({ targets: ".intro__bar span", scaleX: [0, 1], duration: 700, delay: anime.stagger(90), easing: "easeInOutQuart" }, 800)
+        .add({ targets: ".intro__welcome", opacity: [0, 1], translateY: [14, 0], duration: 700 }, 1200)
+        .add({ targets: ".intro__center", opacity: [1, 0], scale: [1, 1.06], duration: 500, easing: "easeInQuad" }, 2600)
+
+        // --- the screen splits open ---
+        .add({ targets: ".intro__panel--top", translateY: ["0%", "-100%"], duration: 1000, easing: "easeInOutQuart" }, 2900)
+        .add({
+            targets: ".intro__panel--bottom",
+            translateY: ["0%", "100%"],
+            duration: 1000,
+            easing: "easeInOutQuart",
+            complete: () => intro.classList.add("is-done")
+        }, 2900)
+
+        // --- the hero builds in underneath ---
+        .add({ targets: ".top-nav", opacity: [0, 1], duration: 800, easing: "easeOutQuad" }, 3050)
+        .add({
+            targets: ".agent-container",
+            opacity: [0, 1],
+            translateY: [80, 0],
+            duration: 1100,
+            begin: playStats
+        }, 3000)
+        .add({ targets: ".text-wrap > *", opacity: [0, 1], translateX: [60, 0], duration: 900, delay: anime.stagger(120) }, 3200)
+        .add({ targets: ".stats-panel .stat-row", opacity: [0, 1], translateX: [-40, 0], duration: 800, delay: anime.stagger(100) }, 3300)
+        .add({ targets: ".portrait-container", opacity: [0, 1], translateY: [40, 0], duration: 900 }, 3500);
+
+    // Skip button and Esc jump straight to the site
+    document.getElementById("introSkip").addEventListener("click", finish);
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") finish();
+    });
+})();

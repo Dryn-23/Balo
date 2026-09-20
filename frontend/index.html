@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Balorant</title>
+    <script>
+  // Coming from the login page? Show the intro overlay from the first paint.
+  try {
+    if (sessionStorage.getItem("justLoggedIn") === "1") {
+      document.documentElement.classList.add("intro-pending");
+      // safety net: never leave the page locked if something goes wrong
+      setTimeout(function () {
+        document.documentElement.classList.remove("intro-pending");
+      }, 9000);
+    }
+  } catch (e) {}
+</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -17,6 +29,26 @@
   </head>
 
   <body>
+    <div class="intro" id="intro">
+  <div class="intro__panel intro__panel--top"></div>
+  <div class="intro__panel intro__panel--bottom"></div>
+  <div class="intro__sweep"></div>
+
+  <div class="intro__center">
+    <p class="intro__kicker">Access granted</p>
+    <h1 class="intro__logo" id="introLogo" aria-label="Balorant">BALORANT</h1>
+    <div class="intro__bar">
+      <span style="--c:#7AE582"></span>
+      <span style="--c:#FFA0FD"></span>
+      <span style="--c:#788BFF"></span>
+      <span style="--c:#F4D35E"></span>
+      <span style="--c:#7AE582"></span>
+    </div>
+    <p class="intro__welcome">Welcome, <span id="introName">Agent</span></p>
+  </div>
+
+  <button type="button" class="intro__skip" id="introSkip">Skip</button>
+</div>
 <nav class="top-nav">
   <div class="top-nav__brand">BALORANT</div>
 
