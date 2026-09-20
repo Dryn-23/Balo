@@ -653,7 +653,7 @@ const timelineData = [
     { date: "2025", title: "2ND SEMESTER",
       desc: "Register and login API, token authentication and the database go live.",
       owner: "1ST YEAR", role: "Backend" },
-    { date: "2025", title: "1ST SEMESTER",
+    { date: "2025", title: "1ST FRESHMAN",
       desc: "The hero animation, agent stats and portrait bar come together.",
       owner: "2ND YEAR", role: "Frontend UX/UI" },
     { date: "2025", title: "2ND SEMESTER",
