@@ -1028,11 +1028,11 @@ const timelineData = [
 // Leave a link as "" to hide it. Add more platforms by adding a key here
 // and a label in socialLabels below.
 const socialLinks = [
-    { facebook: "https://facebook.com/your-username", instagram: "https://instagram.com/your-username", github: "https://github.com/your-username" }, // Maratas
-    { facebook: "", instagram: "", github: "" }, // Garin
-    { facebook: "", instagram: "", github: "" }, // SanJuan
-    { facebook: "", instagram: "", github: "" }, // Pat
-    { facebook: "", instagram: "", github: "" }  // Manansala
+    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://instagram.com/your-username", github: "https://github.com/Dryn-23" }, // Maratas
+    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://instagram.com/your-username", github: "https://github.com/Dryn-23" }, // Maratas
+    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://instagram.com/your-username", github: "https://github.com/Dryn-23" }, // Maratas
+    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://instagram.com/your-username", github: "https://github.com/Dryn-23" }, // Maratas
+    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://instagram.com/your-username", github: "https://github.com/Dryn-23" } // Maratas
 ];
 
 const socialLabels = {
