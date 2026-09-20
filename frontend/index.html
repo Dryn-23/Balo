@@ -24,6 +24,7 @@
           <li><a href="#cards">Agents</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#related">Related</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#footer">Contact</a></li>
         </ul>
     </nav>
@@ -187,55 +188,27 @@
   <div class="about__dots" id="aboutDots"></div>
 </section>
 
-<section class="related" id="related">
-  <h2 class="related__title">RELATED ARTICLES</h2>
-  <div class="related__grid">
-
-    <article class="related__card">
-      <a href="#cards" class="related__media" style="background-image:url('images/About_Us1.png');">
-        <span class="related__share" aria-hidden="true">&#8599;</span>
-      </a>
-      <div class="related__body">
-        <div class="related__meta">
-          <span class="related__tag related__tag--backend">BACKEND</span>
-          <span class="related__date">9/17/2026</span>
-        </div>
-        <h3 class="related__headline">Meet Edrian Garin</h3>
-        <p class="related__desc">The logic behind Balorant's backend, keeping every agent swap running smoothly.</p>
-      </div>
-    </article>
-
-    <article class="related__card">
-      <a href="#about" class="related__media" style="background-image:url('images/SanJuan2.png');">
-        <span class="related__share" aria-hidden="true">&#8599;</span>
-      </a>
-      <div class="related__body">
-        <div class="related__meta">
-          <span class="related__tag related__tag--frontend">FRONTEND UX/UI</span>
-          <span class="related__date">9/16/2026</span>
-        </div>
-        <h3 class="related__headline">Designing the Character Select</h3>
-        <p class="related__desc">A look at how Romejay SanJuan shaped the hero animation and layout.</p>
-      </div>
-    </article>
-
-    <article class="related__card">
-      <a href="#about" class="related__media" style="background-image:url('images/Maratas2.png');">
-        <span class="related__share" aria-hidden="true">&#8599;</span>
-      </a>
-      <div class="related__body">
-        <div class="related__meta">
-          <span class="related__tag related__tag--docs">DOCUMENTATION</span>
-          <span class="related__date">9/16/2026</span>
-        </div>
-        <h3 class="related__headline">Inside the Build Notes</h3>
-        <p class="related__desc">Denmark Maratas walks through how the squad kept the project documented end to end.</p>
-      </div>
-    </article>
-    
-
+<section class="gallery" id="gallery">
+  <div class="gallery__header">
+    <h2 class="gallery__title">GALLERY</h2>
+    <p class="gallery__sub">A closer look at the squad. Click any frame to view it full size.</p>
   </div>
+  <div class="gallery__grid" id="galleryGrid"></div>
 </section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+  <button class="lightbox__close" id="lbClose" aria-label="Close viewer">&times;</button>
+  <button class="lightbox__arrow lightbox__arrow--left" id="lbPrev" aria-label="Previous image">&#10094;</button>
+  <figure class="lightbox__figure" id="lbFigure">
+    <img id="lbImg" src="" alt="">
+    <figcaption class="lightbox__caption">
+      <span class="lightbox__role" id="lbRole"></span>
+      <strong class="lightbox__name" id="lbName"></strong>
+      <span class="lightbox__count" id="lbCount"></span>
+    </figcaption>
+  </figure>
+  <button class="lightbox__arrow lightbox__arrow--right" id="lbNext" aria-label="Next image">&#10095;</button>
+</div>
 
 <footer class="footer" id="footer">
   <div class="footer__inner">

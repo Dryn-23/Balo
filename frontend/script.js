@@ -232,6 +232,7 @@ function changeHeroImage(direction) {
     updateHero();
 }
 document.addEventListener("keydown", function (event) {
+    if (document.body.classList.contains("lightbox-open")) return; // <-- add this line
     if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
         changeHeroImage(event.key);
         if (event.key === "ArrowRight") {
@@ -466,3 +467,141 @@ if (footerSquad) {
         footerSquad.appendChild(item);
     });
 }
+
+/* ===== Gallery + Lightbox ===== */
+// Edit this list to change the gallery. size: "big" (2x2), "tall" (1x2) or leave out for a square.
+const galleryData = [
+    { src: "images/Maratas3.png",   name: "Denmark Maratas",  role: "Documentation",  size: "big"  },
+    { src: "images/Garin4.png",     name: "Edrian Garin",     role: "Backend",        size: "tall" },
+    { src: "images/SanJuan2.png",   name: "Romejay SanJuan",  role: "Frontend UX/UI" },
+    { src: "images/Pat4.png",       name: "Kyle Justin Pat",  role: "Backend" },
+    { src: "images/Pat2.png",       name: "Kyle Justin Pat",  role: "Backend",        size: "tall" },
+    { src: "images/Manansala2.png", name: "Elbert Manansala", role: "Documentation",  size: "big"  },
+    { src: "images/About_Us1.png",  name: "Edrian Garin",     role: "Backend" },
+    { src: "images/SanJuan.png",    name: "Romejay SanJuan",  role: "Frontend UX/UI" }
+];
+
+const roleColors = {
+    "Documentation": "#FFA0FD",
+    "Backend": "#7AE582",
+    "Frontend UX/UI": "#788BFF"
+};
+
+const galleryGrid = document.getElementById("galleryGrid");
+const lightbox = document.getElementById("lightbox");
+const lbImg = document.getElementById("lbImg");
+const lbName = document.getElementById("lbName");
+const lbRole = document.getElementById("lbRole");
+const lbCount = document.getElementById("lbCount");
+let galleryIndex = 0;
+let lastFocusedTile = null;
+
+function buildGallery() {
+    const observer = "IntersectionObserver" in window
+        ? new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 })
+        : null;
+
+    galleryData.forEach((item, i) => {
+        const tile = document.createElement("button");
+        tile.type = "button";
+        tile.className = "gallery__item" + (item.size ? ` gallery__item--${item.size}` : "");
+        tile.style.setProperty("--accent", roleColors[item.role] || "#eaeeb2");
+        tile.style.setProperty("--delay", `${(i % 4) * 0.08}s`);
+        tile.setAttribute("aria-label", `View ${item.name} full size`);
+
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = item.name;
+        img.loading = "lazy";
+
+        const index = document.createElement("span");
+        index.className = "gallery__index";
+        index.textContent = String(i + 1).padStart(2, "0");
+
+        const zoom = document.createElement("span");
+        zoom.className = "gallery__zoom";
+        zoom.setAttribute("aria-hidden", "true");
+        zoom.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14"><path d="M8 1h5v5M6 13H1V8M13 1 8.500 5.500M1 13l4.500-4.500" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+
+        const caption = document.createElement("div");
+        caption.className = "gallery__caption";
+        const capRole = document.createElement("span");
+        capRole.className = "gallery__caption-role";
+        capRole.textContent = item.role;
+        const capName = document.createElement("span");
+        capName.className = "gallery__caption-name";
+        capName.textContent = item.name;
+        caption.append(capRole, capName);
+
+        tile.append(img, index, zoom, caption);
+        tile.addEventListener("click", () => openLightbox(i, tile));
+        galleryGrid.appendChild(tile);
+
+        if (observer) observer.observe(tile);
+        else tile.classList.add("is-visible");
+    });
+}
+
+function renderLightbox(swap = true) {
+    const item = galleryData[galleryIndex];
+    const apply = () => {
+        lbImg.src = item.src;
+        lbImg.alt = item.name;
+    };
+    lbName.textContent = item.name;
+    lbRole.textContent = item.role;
+    lbCount.textContent = `${galleryIndex + 1} / ${galleryData.length}`;
+
+    if (swap) {
+        lbImg.classList.add("is-changing");
+        lbImg.onload = () => lbImg.classList.remove("is-changing");
+    }
+    apply();
+}
+
+function openLightbox(index, tile) {
+    galleryIndex = index;
+    lastFocusedTile = tile || null;
+    renderLightbox(false);
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+    document.getElementById("lbClose").focus();
+}
+
+function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
+    if (lastFocusedTile) lastFocusedTile.focus();
+}
+
+function stepLightbox(direction) {
+    galleryIndex = (galleryIndex + direction + galleryData.length) % galleryData.length;
+    renderLightbox();
+}
+
+document.getElementById("lbClose").addEventListener("click", closeLightbox);
+document.getElementById("lbPrev").addEventListener("click", () => stepLightbox(-1));
+document.getElementById("lbNext").addEventListener("click", () => stepLightbox(1));
+
+// click on the dark backdrop closes the viewer
+lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown", (event) => {
+    if (!lightbox.classList.contains("is-open")) return;
+    if (event.key === "Escape") closeLightbox();
+    if (event.key === "ArrowRight") stepLightbox(1);
+    if (event.key === "ArrowLeft") stepLightbox(-1);
+});
+
+buildGallery();
