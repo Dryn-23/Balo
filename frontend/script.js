@@ -68,9 +68,6 @@ const agentInformations = {
     Maratas: {
         role: "Documentation",
         description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia.",
-        // fullBody: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/c30c0062bd731ada4a0555503a8cf768988c2b07/cypher-fb.webp",
-        // fullBody_s: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/c30c0062bd731ada4a0555503a8cf768988c2b07/cypher-fb-S.png",
-        // fullBody_b: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/c30c0062bd731ada4a0555503a8cf768988c2b07/cypher-fb-B.png",
         fullBody: "images/Maratas2.png",
         fullBody_s: "images/Maratas2.png",
         fullBody_b: "images/Maratas2.png",
@@ -82,9 +79,6 @@ const agentInformations = {
     Garin: {
         role: "Backend",
         description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia.",
-        // fullBody: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/c30c0062bd731ada4a0555503a8cf768988c2b07/omen-fb.png",
-        // fullBody_s: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/c30c0062bd731ada4a0555503a8cf768988c2b07/omen-fb-S.png",
-        // fullBody_b: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/c30c0062bd731ada4a0555503a8cf768988c2b07/omen-fb-B.png",
         fullBody: "images/Garin4.png",
         fullBody_s: "images/Garin4.png",
         fullBody_b: "images/Garin4.png",
@@ -96,9 +90,6 @@ const agentInformations = {
     SanJuan: {
         role: "Frontend UX/UI",
         description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia.",
-        // fullBody: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/eb16463e6cf4e0f2b091c0dbc9d94f3cbfffcadb/clove-fb.png",
-        // fullBody_s: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/eb16463e6cf4e0f2b091c0dbc9d94f3cbfffcadb/clove-fb-S.png",
-        // fullBody_b: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/eb16463e6cf4e0f2b091c0dbc9d94f3cbfffcadb/clove-fb-B.png",
         fullBody: "images/SanJuan4.png",
         fullBody_s: "images/SanJuan4.png",
         fullBody_b: "images/SanJuan4.png",
@@ -121,9 +112,6 @@ const agentInformations = {
     Manansala: {
         role: "Documentation",
         description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia.",
-        // fullBody: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/b06cdcbc82165eb2fd35c9278239c56d2c7dc29e/gekko-fb.png",
-        // fullBody_s: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/b06cdcbc82165eb2fd35c9278239c56d2c7dc29e/gekko-fb-S.png",
-        // fullBody_b: "https://gist.githubusercontent.com/ga-fleury/7116052c3ca3295a206571d8bd42769f/raw/b06cdcbc82165eb2fd35c9278239c56d2c7dc29e/gekko-fb-B.png",
         fullBody: "images/Manansala2.png",
         fullBody_s: "images/Manansala2.png",
         fullBody_b: "images/Manansala2.png",
@@ -657,7 +645,6 @@ document.addEventListener("keydown", (event) => {
 buildGallery();
 
 /* ===== Login intro animation ===== */
-/* ===== Login intro animation ===== */
 (function playLoginIntro() {
     const root = document.documentElement;
     const intro = document.getElementById("intro");
@@ -672,139 +659,57 @@ buildGallery();
     // 1 = normal speed, lower = slower. 0.7 makes each countdown number last about 1 second.
     const SPEED = 0.7;
     anime.speed = SPEED;
-    const sec = (ms) => ms / 1000 / SPEED; // animation milliseconds -> real seconds (for audio)
 
-    /* ---------- Sound effects (synthesized, no audio files needed) ---------- */
+    /* ---------- Sound effect: your own file, played once at the start ---------- */
     const sfx = (function () {
-        const AC = window.AudioContext || window.webkitAudioContext;
-        let ctx = null;
-        let master = null;
-        let noise = null;
         let muted = false;
-        let onChange = () => {};
         try { muted = localStorage.getItem("introMuted") === "1"; } catch (e) {}
 
-        if (AC) {
-            try {
-                ctx = new AC();
-                master = ctx.createGain();
-                master.gain.value = 0.6; // overall volume (0 to 1)
-                const comp = ctx.createDynamicsCompressor();
-                master.connect(comp);
-                comp.connect(ctx.destination);
-                // one second of white noise, looped and filtered for whooshes
-                noise = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
-                const d = noise.getChannelData(0);
-                for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
-                ctx.onstatechange = () => onChange();
-            } catch (e) { ctx = null; }
-        }
+        const audio = new Audio("sfx/videoplayback.mp4");
+        audio.preload = "auto";
+        audio.muted = muted;
 
-        // sounds only play while the context is running, so a blocked browser stays silent
-        const ready = () => !!ctx && ctx.state === "running" && !muted;
-
-        function tone(o) {
-            if (!ready()) return;
-            const t = ctx.currentTime + (o.at || 0);
-            const osc = ctx.createOscillator();
-            const g = ctx.createGain();
-            osc.type = o.type || "sine";
-            osc.frequency.setValueAtTime(o.freq, t);
-            if (o.to) osc.frequency.exponentialRampToValueAtTime(o.to, t + o.dur);
-            g.gain.setValueAtTime(0.0001, t);
-            g.gain.exponentialRampToValueAtTime(o.vol || 0.3, t + (o.attack || 0.01));
-            g.gain.exponentialRampToValueAtTime(0.0001, t + o.dur);
-            osc.connect(g);
-            g.connect(master);
-            osc.start(t);
-            osc.stop(t + o.dur + 0.05);
-        }
-
-        function whoosh(o) {
-            if (!ready() || !noise) return;
-            const t = ctx.currentTime + (o.at || 0);
-            const src = ctx.createBufferSource();
-            src.buffer = noise;
-            src.loop = true;
-            const filter = ctx.createBiquadFilter();
-            filter.type = "bandpass";
-            filter.Q.value = o.q || 1;
-            filter.frequency.setValueAtTime(o.from, t);
-            filter.frequency.exponentialRampToValueAtTime(o.to, t + o.dur);
-            const g = ctx.createGain();
-            g.gain.setValueAtTime(0.0001, t);
-            g.gain.exponentialRampToValueAtTime(o.vol || 0.3, t + o.dur * (o.peak || 0.4));
-            g.gain.exponentialRampToValueAtTime(0.0001, t + o.dur);
-            src.connect(filter);
-            filter.connect(g);
-            g.connect(master);
-            src.start(t);
-            src.stop(t + o.dur + 0.05);
-        }
-
-        // resolves when audio is running, or after 250 ms if the browser blocks it
-        function unlock() {
-            if (!ctx) return Promise.resolve();
-            const p = ctx.state === "running" ? Promise.resolve() : ctx.resume().catch(() => {});
-            return Promise.race([p, new Promise((r) => setTimeout(r, 250))]);
-        }
+        let blocked = false;
+        let onChange = () => {};
+        audio.addEventListener("error", () => {
+            blocked = true;
+            onChange();
+        });
 
         return {
-            supported: () => !!ctx,
-            blocked: () => !!ctx && ctx.state !== "running",
+            supported: () => true,
+            blocked: () => blocked,
             isMuted: () => muted,
             setMuted(v) {
                 muted = v;
+                audio.muted = v;
                 try { localStorage.setItem("introMuted", v ? "1" : "0"); } catch (e) {}
             },
             onChange(cb) { onChange = cb; },
-            resume() { if (ctx && ctx.state !== "running") ctx.resume().catch(() => {}); },
-            unlock,
+            resume() {}, // kept so existing calls elsewhere don't error
 
-            // light streak crossing the screen
-            sweep(dur) { whoosh({ from: 250, to: 5000, dur, vol: 0.22, q: 0.8 }); },
-            // "Access granted"
-            blip() { tone({ freq: 880, to: 1320, dur: 0.14, type: "square", vol: 0.06 }); },
-            // one rising tick per letter of BALORANT
-            letters(gap, count) {
-                const notes = [392, 440, 523.25, 587.33, 659.25, 783.99, 880, 1046.5];
-                for (let i = 0; i < count; i++) {
-                    tone({ at: i * gap, freq: notes[i % notes.length], dur: 0.09, type: "triangle", vol: 0.11 });
-                }
+            // browsers block audio until a user gesture; try a silent play/pause
+            // right away so the real playback later isn't blocked
+            unlock() {
+                const p = audio.play()
+                    .then(() => { audio.pause(); audio.currentTime = 0; })
+                    .catch(() => { blocked = true; onChange(); });
+                return Promise.race([p, new Promise((r) => setTimeout(r, 250))]);
             },
-            // welcome line
-            chime() {
-                tone({ freq: 659.25, dur: 0.6, vol: 0.14, attack: 0.02 });
-                tone({ at: 0.12, freq: 987.77, dur: 0.8, vol: 0.12, attack: 0.02 });
+
+            // plays the one clip, once, from the top
+            start() {
+                if (muted) return;
+                audio.currentTime = 0;
+                audio.play().catch(() => {});
             },
-            // 3, 2, 1: the pitch rises with each number
-            count(n) {
-                const f = { 3: 440, 2: 554.37, 1: 659.25 }[n];
-                tone({ freq: f, dur: 0.28, vol: 0.35, attack: 0.005 });
-                tone({ freq: f * 2, dur: 0.14, type: "triangle", vol: 0.1, attack: 0.005 });
-                tone({ freq: 110, to: 55, dur: 0.18, vol: 0.4, attack: 0.005 });
-            },
-            // the screen splits open
-            boom(dur) {
-                tone({ freq: 120, to: 34, dur: 1.1, vol: 0.8, attack: 0.005 });
-                tone({ freq: 60, to: 30, dur: 0.9, type: "triangle", vol: 0.4, attack: 0.005 });
-                whoosh({ from: 7000, to: 180, dur, vol: 0.32, q: 0.7, peak: 0.15 });
-                [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
-                    tone({ at: 0.04 * i, freq: f, dur: 1.4, vol: 0.08, attack: 0.02 });
-                });
-            },
-            // hero rising in
-            rise() { whoosh({ from: 300, to: 3000, dur: 0.9, vol: 0.14, peak: 0.5 }); },
-            // fade out quickly if skipped, then free the audio context
+
+            // stop the clip early if the intro is skipped
             end(skipped) {
-                if (!ctx) return;
-                if (skipped && master && ctx.state === "running") {
-                    const t = ctx.currentTime;
-                    master.gain.cancelScheduledValues(t);
-                    master.gain.setValueAtTime(master.gain.value, t);
-                    master.gain.linearRampToValueAtTime(0.0001, t + 0.2);
+                if (skipped) {
+                    audio.pause();
+                    audio.currentTime = 0;
                 }
-                setTimeout(() => { ctx.close().catch(() => {}); }, skipped ? 400 : 2500);
             }
         };
     })();
@@ -823,15 +728,11 @@ buildGallery();
     soundBtn.addEventListener("click", () => {
         if (sfx.blocked()) {
             sfx.setMuted(false);
-            sfx.resume();
         } else {
             sfx.setMuted(!sfx.isMuted());
         }
         updateSoundBtn();
     });
-
-    // any first tap or key press also unlocks audio if the browser blocked it
-    ["pointerdown", "keydown"].forEach((ev) => window.addEventListener(ev, sfx.resume, { once: true }));
 
     /* ---------- Intro animation ---------- */
     let done = false;
@@ -926,16 +827,13 @@ buildGallery();
     });
 
     tl
-        // --- intro screen ---
+        // --- intro screen --- (the sfx clip starts once, right here)
         .add({ targets: ".intro__sweep", translateX: ["0%", "800%"], duration: 1300, easing: "easeInOutQuad",
-               begin: () => sfx.sweep(sec(1300)) }, 0)
-        .add({ targets: ".intro__kicker", opacity: [0, 1], translateY: [10, 0], duration: 600,
-               begin: () => sfx.blip() }, 100)
-        .add({ targets: ".intro__letter", translateY: ["110%", "0%"], duration: 900, delay: anime.stagger(70),
-               begin: () => sfx.letters(sec(70), word.length) }, 200)
+               begin: () => sfx.start() }, 0)
+        .add({ targets: ".intro__kicker", opacity: [0, 1], translateY: [10, 0], duration: 600 }, 100)
+        .add({ targets: ".intro__letter", translateY: ["110%", "0%"], duration: 900, delay: anime.stagger(70) }, 200)
         .add({ targets: ".intro__bar span", scaleX: [0, 1], duration: 700, delay: anime.stagger(90), easing: "easeInOutQuart" }, 800)
-        .add({ targets: ".intro__welcome", opacity: [0, 1], translateY: [14, 0], duration: 700,
-               begin: () => sfx.chime() }, 1200)
+        .add({ targets: ".intro__welcome", opacity: [0, 1], translateY: [14, 0], duration: 700 }, 1200)
         .add({ targets: ".intro__center", opacity: [1, 0], scale: [1, 1.06], duration: 500, easing: "easeInQuad" }, 2200)
 
         // --- countdown ring appears ---
@@ -955,7 +853,6 @@ buildGallery();
                     if (done) return;
                     num.textContent = n;
                     ring.style.stroke = ringColors[i];
-                    sfx.count(n);
                 }
             }, t)
             .add({
@@ -973,15 +870,14 @@ buildGallery();
         .add({ targets: ".intro__count", opacity: [1, 0], duration: 200, easing: "easeInQuad" }, T_COUNT + SLOT * 3 - 50)
 
         // --- the screen splits open ---
-        .add({ targets: ".intro__panel--top", translateY: ["0%", "-100%"], duration: 1000, easing: "easeInOutQuart",
-               begin: () => sfx.boom(sec(1000)) }, T_SPLIT)
+        .add({ targets: ".intro__panel--top", translateY: ["0%", "-100%"], duration: 1000, easing: "easeInOutQuart" }, T_SPLIT)
         .add({ targets: ".intro__panel--bottom", translateY: ["0%", "100%"], duration: 1000, easing: "easeInOutQuart",
                complete: () => intro.classList.add("is-done") }, T_SPLIT)
 
         // --- the hero builds in underneath ---
         .add({ targets: ".top-nav", opacity: [0, 1], duration: 800, easing: "easeOutQuad" }, T_SPLIT + 150)
         .add({ targets: ".agent-container", opacity: [0, 1], translateY: [80, 0], duration: 1100,
-               begin: () => { sfx.rise(); playStats(); } }, T_SPLIT + 100)
+               begin: () => { playStats(); } }, T_SPLIT + 100)
         .add({ targets: ".text-wrap > *", opacity: [0, 1], translateX: [60, 0], duration: 900, delay: anime.stagger(120) }, T_SPLIT + 300)
         .add({ targets: ".stats-panel .stat-row", opacity: [0, 1], translateX: [-40, 0], duration: 800, delay: anime.stagger(100) }, T_SPLIT + 400)
         .add({ targets: ".portrait-container", opacity: [0, 1], translateY: [40, 0], duration: 900 }, T_SPLIT + 600);
