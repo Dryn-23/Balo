@@ -648,7 +648,7 @@ buildGallery();
 // Documentation (pink), Backend (green), Frontend UX/UI (blue). Leave role out for a neutral color.
 const timelineData = [
     { date: "2024", title: "1ST SEMESTER",
-      desc: "The five agents are picked, roles are assigned and the project scope is written down.",
+      desc: "The five balorants agents are picked, roles are assigned and the project scope is written down.",
       owner: "1ST YEAR", role: "FRESHMAN" },
     { date: "2025", title: "2ND SEMESTER",
       desc: "Register and login API, token authentication and the database go live.",
