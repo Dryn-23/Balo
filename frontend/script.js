@@ -472,12 +472,12 @@ if (footerSquad) {
 /* ===== Gallery + Lightbox ===== */
 // Edit this list to change the gallery. size: "big" (2x2), "tall" (1x2) or leave out for a square.
 const galleryData = [
-    { src: "images/Gallery1.png",   name: "Denmark Maratas",  role: "Documentation",  size: "big"  },
-    { src: "images/Garin4.png",     name: "Edrian Garin",     role: "Backend",        size: "tall" },
-    { src: "images/SanJuan2.png",   name: "Romejay SanJuan",  role: "Frontend UX/UI" },
+    { src: "images/Gallery1.png",   size: "big"  },
+    { src: "images/Gallery4.png",         size: "big" },
+    { src: "images/Gallery6.png" },
     { src: "images/Gallery2.png",       name: "Kyle Justin Pat",  role: "Backend" },
     { src: "images/Gallery3.png", size: "tall" },
-    { src: "images/Manansala2.png", name: "Elbert Manansala", role: "Documentation",  size: "big"  },
+    { src: "images/Gallery4.png", size: "big"  },
     { src: "images/About_Us1.png",  name: "Edrian Garin",     role: "Backend" },
     { src: "images/SanJuan.png",    name: "Romejay SanJuan",  role: "Frontend UX/UI" }
 ];
