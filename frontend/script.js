@@ -663,8 +663,7 @@ buildGallery();
     const fromLogin = sessionStorage.getItem("justLoggedIn") === "1";
     sessionStorage.removeItem("justLoggedIn"); // only plays once per login
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!intro || !fromLogin || !token || reduceMotion) {
+     if (!intro || !fromLogin || !token) {
         root.classList.remove("intro-pending");
         return;
     }
