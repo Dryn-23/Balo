@@ -758,7 +758,7 @@ buildGallery();
         .add({
             targets: ".intro__panel--bottom",
             translateY: ["0%", "100%"],
-            duration: 1000,
+            duration: 10000,
             easing: "easeInOutQuart",
             complete: () => intro.classList.add("is-done")
         }, 2900)
