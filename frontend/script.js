@@ -350,8 +350,8 @@ const aboutData = [
     {
         name: "Denmark Maratas",
         role: "Documentation",
-        desc: "Keeps the project organized and well documented, making sure every part of the build is easy to follow and maintain.",
-        image: "images/Maratas2.png"
+        desc: "I can sleep deeply and get quality rest. I wake up feeling refreshed, focused, and ready to take on the day.",
+        image: "images/Maratas3.png"
     },
     {
         name: "Edrian Garin",
@@ -369,7 +369,7 @@ const aboutData = [
         name: "Kyle Justin Pat",
         role: "Backend",
         desc: "I can do calisthenics and enjoy challenging myself physically. It helps me build strength, discipline, and endurance",
-        image: "images/Pat3.png"
+        image: "images/Pat4.png"
     },
     {
         name: "Elbert Manansala",
