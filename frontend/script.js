@@ -448,7 +448,7 @@ if (footerSquad) {
         const name = document.createElement("span");
         const role = document.createElement("span");
 
-        link.href = "#about";\1
+        link.href = "#about";
         link.dataset.role = member.role; // styles.css colors the marker by role
         name.className = "footer__member-name";
         name.textContent = member.name;
