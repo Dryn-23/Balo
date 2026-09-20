@@ -104,9 +104,9 @@ const agentInformations = {
     Pat: {
         role: "Backend",
         description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia..",
-        fullBody: "images/Pat3.png",
-        fullBody_s: "images/Pat3.png",
-        fullBody_b: "images/Pat3.png",
+        fullBody: "images/Pat2.png",
+        fullBody_s: "images/Pat2.png",
+        fullBody_b: "images/Pat2.png",
         portrait: "images/Pat.png",
         gradientName: "gekko-state",
         gradientDirection: "diagonal",
@@ -368,8 +368,8 @@ const aboutData = [
     {
         name: "Kyle Justin Pat",
         role: "Backend",
-        desc: "Works on the backend systems alongside the team, focusing on functionality and performance.",
-        image: "images/Pat2.png"
+        desc: "I can do calisthenics and enjoy challenging myself physically. It helps me build strength, discipline, and endurance",
+        image: "images/Pat3.png"
     },
     {
         name: "Elbert Manansala",
