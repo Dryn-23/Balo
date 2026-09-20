@@ -1,6 +1,5 @@
 const API_URL = "https://balo-5.onrender.com";
 localStorage.removeItem("token");
-
 const loginView = document.getElementById("loginView");
 const registerView = document.getElementById("registerView");
 const showRegister = document.getElementById("showRegister");
@@ -59,8 +58,7 @@ registerForm.addEventListener("submit", async (e) => {
 
   const name = document.getElementById("name").value;
   const email = document.getElementById("regEmail").value;
-  const passwordInput = document.getElementById("regPassword");
-  const password = passwordInput.value;
+  const password = document.getElementById("regPassword").value;
   const message = document.getElementById("registerMessage");
 
   try {
@@ -75,10 +73,6 @@ registerForm.addEventListener("submit", async (e) => {
 
     if (response.ok) {
       registerForm.reset();
-    } else if (data.field === "password" || response.status === 409) {
-      // Password already used by another account: clear it so a new one can be typed
-      passwordInput.value = "";
-      passwordInput.focus();
     }
   } catch (error) {
     setMessage(message, "Cannot connect to the server.");
