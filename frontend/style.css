@@ -1749,3 +1749,268 @@ html.intro-pending .portrait-container { opacity: 0; }
   color: #eaeeb2;
   border-color: #eaeeb2;
 }
+
+/* ===== Timeline ===== */
+.timeline {
+  position: relative;
+  z-index: 1;
+  padding: 140px 6vw 150px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 160, 253, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(120, 139, 255, 0.14), transparent 45%),
+    radial-gradient(circle at 25% 85%, rgba(244, 211, 94, 0.10), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(122, 229, 130, 0.12), transparent 45%),
+    linear-gradient(180deg, #0d1f2f 0%, #13293D 50%, #0d1f2f 100%);
+}
+
+.timeline__header {
+  max-width: 600px;
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.timeline__title {
+  font-family: "Oswald", sans-serif;
+  font-size: min(4vw, 48px);
+  font-weight: 700;
+  letter-spacing: 8px;
+  color: #eaeeb2;
+  text-transform: uppercase;
+}
+
+.timeline__sub {
+  margin-top: 16px;
+  font-family: "Arimo", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.timeline__track {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* the vertical line; script.js sets its top and height so it runs from the first dot to the last */
+.timeline__line {
+  position: absolute;
+  left: calc(50% - 1px);
+  width: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+}
+
+/* the part of the line that fills as you scroll */
+.timeline__progress {
+  display: block;
+  width: 100%;
+  height: 0;
+  background: #eaeeb2;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(234, 238, 178, 0.6);
+}
+
+.timeline__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* odd items sit left of the line, even items right */
+.timeline__item {
+  --accent: #eaeeb2;
+  position: relative;
+  width: 50%;
+  padding-right: 56px;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.timeline__item:nth-child(even) {
+  margin-left: 50%;
+  padding-right: 0;
+  padding-left: 56px;
+  transform: translateX(40px);
+}
+
+.timeline__item.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* the dot on the line */
+.timeline__node {
+  position: absolute;
+  top: 24px;
+  right: -9px;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0d1f2f;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.timeline__item:nth-child(even) .timeline__node {
+  right: auto;
+  left: -9px;
+}
+
+.timeline__node.is-lit {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.15);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 25%, transparent), 0 0 18px var(--accent);
+}
+
+.timeline__card {
+  position: relative;
+  padding: 22px 26px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--accent);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), 0 0 26px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* short connector from the card to the dot */
+.timeline__card::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: -57px;
+  width: 57px;
+  height: 2px;
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.timeline__item:nth-child(even) .timeline__card::before {
+  right: auto;
+  left: -57px;
+}
+
+.timeline__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.timeline__date {
+  font-family: "Arimo", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.timeline__num {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.timeline__name {
+  margin-bottom: 8px;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.timeline__desc {
+  font-family: "Arimo", sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.timeline__owner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.timeline__owner::before {
+  content: "";
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+
+.timeline__owner-name {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.timeline__owner-role {
+  margin-left: auto;
+  font-family: "Arimo", sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* phones and small tablets: one column, line on the left */
+@media screen and (max-width: 768px) {
+  .timeline { padding: 100px 5vw 110px; }
+  .timeline__header { margin-bottom: 50px; }
+  .timeline__title { font-size: 1.6rem; letter-spacing: 5px; }
+
+  .timeline__line { left: 17px; }
+
+  .timeline__item,
+  .timeline__item:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    padding: 0 0 0 52px;
+    transform: translateY(28px);
+  }
+
+  .timeline__item.is-visible { transform: none; }
+
+  .timeline__node,
+  .timeline__item:nth-child(even) .timeline__node {
+    left: 9px;
+    right: auto;
+  }
+
+  .timeline__card::before,
+  .timeline__item:nth-child(even) .timeline__card::before {
+    left: -26px;
+    right: auto;
+    width: 26px;
+  }
+
+  .timeline__card { padding: 18px 18px 20px; }
+  .timeline__name { font-size: 1.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline__item,
+  .timeline__item:nth-child(even) { opacity: 1; transform: none; transition: none; }
+  .timeline__node, .timeline__card { transition: none; }
+}

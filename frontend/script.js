@@ -643,7 +643,138 @@ document.addEventListener("keydown", (event) => {
 });
 
 buildGallery();
+/* ===== Timeline ===== */
+// Edit this list to change the timeline. "role" picks the color:
+// Documentation (pink), Backend (green), Frontend UX/UI (blue). Leave role out for a neutral color.
+const timelineData = [
+    { date: "Week 1", title: "Squad Assembled",
+      desc: "The five agents are picked, roles are assigned and the project scope is written down.",
+      owner: "Denmark Maratas", role: "Documentation" },
+    { date: "Week 2", title: "Backend & Login",
+      desc: "Register and login API, token authentication and the database go live.",
+      owner: "Edrian Garin", role: "Backend" },
+    { date: "Week 3", title: "Character Select",
+      desc: "The hero animation, agent stats and portrait bar come together.",
+      owner: "Romejay SanJuan", role: "Frontend UX/UI" },
+    { date: "Week 4", title: "Connecting the Pieces",
+      desc: "The frontend talks to the server, profiles load and sessions are handled.",
+      owner: "Kyle Justin Pat", role: "Backend" },
+    { date: "Week 5", title: "Docs & Polish",
+      desc: "Build notes, the gallery and About Us are finished and everything is tested on phones.",
+      owner: "Elbert Manansala", role: "Documentation" },
+    { date: "Launch", title: "Balorant Goes Live",
+      desc: "The full squad ships the finished build.",
+      owner: "Balorant Squad" }
+];
 
+(function buildTimeline() {
+    const list = document.getElementById("timelineList");
+    const track = document.getElementById("timelineTrack");
+    const line = document.getElementById("timelineLine");
+    const progress = document.getElementById("timelineProgress");
+    if (!list || !track || !line || !progress) return;
+
+    const nodes = [];
+    const items = [];
+
+    function el(tag, className, text) {
+        const node = document.createElement(tag);
+        node.className = className;
+        if (text !== undefined) node.textContent = text;
+        return node;
+    }
+
+    timelineData.forEach((entry, i) => {
+        const item = el("li", "timeline__item");
+        item.style.setProperty("--accent", roleColors[entry.role] || "#eaeeb2");
+
+        const node = el("span", "timeline__node");
+        node.setAttribute("aria-hidden", "true");
+
+        const card = el("div", "timeline__card");
+
+        const meta = el("div", "timeline__meta");
+        meta.append(
+            el("span", "timeline__date", entry.date),
+            el("span", "timeline__num", String(i + 1).padStart(2, "0"))
+        );
+
+        const owner = el("div", "timeline__owner");
+        owner.appendChild(el("span", "timeline__owner-name", entry.owner));
+        if (entry.role) owner.appendChild(el("span", "timeline__owner-role", entry.role));
+
+        card.append(
+            meta,
+            el("h3", "timeline__name", entry.title),
+            el("p", "timeline__desc", entry.desc),
+            owner
+        );
+
+        item.append(node, card);
+        list.appendChild(item);
+        nodes.push(node);
+        items.push(item);
+    });
+
+    // slide each card in when it scrolls into view
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2, rootMargin: "0px 0px -8% 0px" });
+        items.forEach((item) => observer.observe(item));
+    } else {
+        items.forEach((item) => item.classList.add("is-visible"));
+    }
+
+    // the line runs from the first dot to the last dot
+    let lineTop = 0;
+    let lineH = 0;
+
+    function measure() {
+        if (nodes.length < 2) return;
+        const t = track.getBoundingClientRect();
+        const a = nodes[0].getBoundingClientRect();
+        const b = nodes[nodes.length - 1].getBoundingClientRect();
+        const aCenter = a.top + a.height / 2;
+        const bCenter = b.top + b.height / 2;
+        lineTop = aCenter - t.top;
+        lineH = Math.max(bCenter - aCenter, 0);
+        line.style.top = lineTop + "px";
+        line.style.height = lineH + "px";
+    }
+
+    // fill the line and light the dots as you scroll
+    function update() {
+        const t = track.getBoundingClientRect();
+        const trigger = window.innerHeight * 0.6; // the line fills up to 60% down the screen
+        const filled = Math.min(Math.max(trigger - (t.top + lineTop), 0), lineH);
+        progress.style.height = filled + "px";
+        nodes.forEach((node) => {
+            const r = node.getBoundingClientRect();
+            node.classList.toggle("is-lit", r.top + r.height / 2 <= trigger);
+        });
+    }
+
+    let ticking = false;
+    function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => { ticking = false; update(); });
+    }
+
+    function remeasure() { measure(); update(); }
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", remeasure);
+    window.addEventListener("load", remeasure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(remeasure);
+    remeasure();
+})();
 /* ===== Login intro animation ===== */
 (function playLoginIntro() {
     const root = document.documentElement;
