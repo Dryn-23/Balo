@@ -27,10 +27,15 @@ function initAuth() {
             return response.json();
         })
         .then((data) => {
-            if (welcome) {
-                welcome.textContent = `Welcome, ${data.user.name} (${data.user.email})`;
-            }
-        })
+    if (welcome) {
+        welcome.textContent = `Welcome, ${data.user.name} (${data.user.email})`;
+    }
+    // show the user's name in the login intro
+    const introName = document.getElementById("introName");
+    if (introName && data.user && data.user.name) {
+        introName.textContent = data.user.name;
+    }
+})
         .catch(() => {
             redirectToLogin();
         });
