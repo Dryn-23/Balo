@@ -665,7 +665,7 @@ buildGallery();
         let muted = false;
         try { muted = localStorage.getItem("introMuted") === "1"; } catch (e) {}
 
-        const audio = new Audio("https://youtu.be/uToecKXLkmE?si=jRZDxgHl41b6sTuC");
+        const audio = new Audio("sfx/videoplayback.mp4");
         audio.preload = "auto";
         audio.muted = muted;
 
