@@ -13,7 +13,7 @@
       // safety net: never leave the page locked if something goes wrong
       setTimeout(function () {
         document.documentElement.classList.remove("intro-pending");
-      }, 9000);
+      }, 20000);
     }
   } catch (e) {}
 </script>
@@ -35,6 +35,7 @@
   <div class="intro__sweep"></div>
 
   <div class="intro__center">
+
     <p class="intro__kicker">Access granted</p>
     <h1 class="intro__logo" id="introLogo" aria-label="Balorant">MATCH FOUND</h1>
     <div class="intro__bar">
@@ -46,7 +47,14 @@
     </div>
     <p class="intro__welcome">Welcome, <span id="introName">Agent</span></p>
   </div>
-
+    <div class="intro__count" id="introCount" aria-hidden="true">
+    <svg class="intro__ring" viewBox="0 0 200 200">
+      <circle class="intro__ring-bg" cx="100" cy="100" r="88"></circle>
+      <circle class="intro__ring-fg" id="introRing" cx="100" cy="100" r="88"></circle>
+    </svg>
+    <span class="intro__num" id="introNum">3</span>
+  </div>
+    <button type="button" class="intro__sound" id="introSound">Sound on</button>
   <button type="button" class="intro__skip" id="introSkip">Skip</button>
 </div>
 <nav class="top-nav">

@@ -1680,3 +1680,72 @@ html.intro-pending .portrait-container { opacity: 0; }
   color: #eaeeb2;
   border-color: #eaeeb2;
 }
+
+/* ===== Intro countdown ===== */
+.intro__count {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  z-index: 2;
+  width: min(58vw, 300px);
+  height: min(58vw, 300px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* the ring starts drawing from the top */
+}
+
+.intro__ring circle {
+  fill: none;
+  stroke-width: 3;
+}
+
+.intro__ring-bg { stroke: rgba(255, 255, 255, 0.12); }
+
+.intro__ring-fg {
+  stroke: #eaeeb2;
+  stroke-linecap: round;
+  stroke-dasharray: 553;   /* circle length: 2 * PI * 88 */
+  stroke-dashoffset: 553;  /* fully hidden until the countdown draws it */
+}
+
+.intro__num {
+  font-family: "Oswald", sans-serif;
+  font-size: min(30vw, 180px);
+  font-weight: 700;
+  line-height: 1;
+  color: #eaeeb2;
+  opacity: 0;
+}
+
+/* sound button (bottom left, same style as Skip) */
+.intro__sound {
+  position: absolute;
+  left: 4vw;
+  bottom: 4vh;
+  z-index: 3;
+  padding: 8px 16px;
+  font-family: "Arimo", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.intro__sound:hover {
+  color: #eaeeb2;
+  border-color: #eaeeb2;
+}
