@@ -2,13 +2,12 @@
 
 /* ===== Auth / Profile ===== */
 const API_URL = "https://balo-5.onrender.com";
-const token = localStorage.getItem("token");
+const token = sessionStorage.getItem("token");
 
 function redirectToLogin() {
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     window.location.href = "login.html";
 }
-
 function initAuth() {
     if (!token) {
         window.location.href = "login.html";
@@ -42,6 +41,22 @@ function initAuth() {
 }
 
 initAuth();
+
+/* ===== Auto logout when the tab is left ===== */
+let leftTab = false;
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        leftTab = true;
+    } else if (leftTab) {
+        redirectToLogin();
+    }
+});
+
+// Coming back with the browser Back button (page restored from cache)
+window.addEventListener("pageshow", (event) => {
+    if (event.persisted) redirectToLogin();
+});
+
 const mainAgentImage = document.getElementById("main-agent");
 const mainAgentImageOverlayShort = document.getElementById("main-agent-s");
 const mainAgentImageOverlayBig = document.getElementById("main-agent-b");

@@ -1,5 +1,5 @@
 const API_URL = "https://balo-5.onrender.com";
-
+localStorage.removeItem("token");
 const loginView = document.getElementById("loginView");
 const registerView = document.getElementById("registerView");
 const showRegister = document.getElementById("showRegister");
@@ -46,7 +46,7 @@ loginForm.addEventListener("submit", async (e) => {
       return;
     }
 
-    localStorage.setItem("token", data.token);
+    sessionStorage.setItem("token", data.token);
     window.location.href = "index.html";
   } catch (error) {
     setMessage(message, "Cannot connect to the server.");
