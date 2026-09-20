@@ -480,7 +480,8 @@ const galleryData = [
     { src: "images/Gallery4.png", size: "big"  },
     { src: "images/About_Us1.png",  },
     { src: "images/Gallery7.png",   },
-    { src: "images/Gallery8.png",   }
+    { src: "images/Gallery8.png",   },
+    { src: "images/Gallery9.png",   }
 ];
 
 const roleColors = {
