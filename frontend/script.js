@@ -649,7 +649,7 @@ buildGallery();
 const timelineData = [
     { date: "2024", title: "1ST SEMESTER",
       desc: "The five agents are picked, roles are assigned and the project scope is written down.",
-      owner: "1ST YEAR", role: "Documentation" },
+      owner: "1ST YEAR", role: "FRESHMAN" },
     { date: "2025", title: "2ND SEMESTER",
       desc: "Register and login API, token authentication and the database go live.",
       owner: "1ST YEAR", role: "Backend" },
