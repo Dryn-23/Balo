@@ -226,6 +226,84 @@ body {
   border-color: var(--accent);
 }
 
+/* Password show/hide */
+.password-wrap {
+  position: relative;
+}
+.password-wrap input {
+  width: 100%;
+  padding-right: 40px;
+}
+.eye-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #8a8a8a;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+.eye-btn:hover {
+  color: #ffffff;
+}
+.hidden {
+  display: none;
+}
+
+/* View transition */
+.view {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  opacity: 1;
+  transform: translateX(0);
+}
+.view.hidden {
+  display: none;
+}
+.view.slide-out-left {
+  opacity: 0;
+  transform: translateX(-24px);
+}
+.view.slide-out-right {
+  opacity: 0;
+  transform: translateX(24px);
+}
+.view.slide-in {
+  animation: slideIn 0.35s ease forwards;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Loading spinner on buttons */
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 @media screen and (max-width: 460px) {
   .panel__body {
     padding: 28px 22px 26px;
