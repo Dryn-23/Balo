@@ -390,13 +390,13 @@ const aboutData = [
         name: "Romejay SanJuan",
         role: "Frontend UX/UI",
         desc: "Designs and refines the look and feel of the site, shaping how every interaction and layout comes together.",
-        image: "images/SanJuan2.png"
+        image: "images/SanJuan5.png"
     },
     {
         name: "Kyle Justin Pat",
         role: "Backend",
         desc: "I can do calisthenics and enjoy challenging myself physically. It helps me build strength, discipline, and endurance",
-        image: "images/Pat4.png"
+        image: "images/Pat5.png"
     },
     {
         name: "Elbert Manansala",
@@ -500,23 +500,23 @@ const galleryData = [
     { src: "images/Gallery1.png",   size: "big"  },
     { src: "images/Gallery5.png",         size: "big" },
     { src: "images/Gallery6.png" },
-    { src: "images/Gallery2.png",       name: "Kyle Justin Pat",  role: "Backend" },
+    { src: "images/Gallery2.png", name: "Kyle Justin Pat",  role: "Backend" },
     { src: "images/Gallery3.png", size: "tall" },
     { src: "images/Gallery4.png", size: "big"  },
     { src: "images/About_Us1.png",  },
-    { src: "images/Gallery7.png",   },
+    { src: "images/Gallery7.png",  name: "Garin / Maratas",  role: "Backend/Documentation"   },
     { src: "images/Gallery8.png",   },
     { src: "images/Gallery9.png",   },
         { src: "images/Gallery10.png",   size: "big"  },
-    { src: "images/Gallery12.png",         size: "big" },
-    { src: "images/Gallery11.png" },
+    { src: "images/Gallery12.png",   name: "Porol",  role: "UI/UX" ,       size: "big" },
+    { src: "images/Gallery11.png", name: "Denmark Maratas",  role: "Documentation"  },
     { src: "images/Pat4.png",       name: "Kyle Justin Pat",  role: "Backend" },
     { src: "images/Gallery15.png",   name: "Kyle Justin Pat",  role: "Backend", size: "tall" },
-    { src: "images/Gallery14.png", size: "big"  },
-    { src: "images/Gallery16.png",  },
-    { src: "images/Gallery13.png",   },
+    { src: "images/Gallery19.png", size: "big"  },
+    { src: "images/Gallery16.png", name: "Romejay SanJuan",  role: "Frontend UX/UI"  },
+    { src: "images/Gallery13.png",   name: "Porol",  role: "UI/UX" , },
     { src: "images/Gallery17.png",   },
-    { src: "images/Gallery18.png",   }
+    { src: "images/Gallery18.png",   name: "Elbert Manansala",  role: "Documentation" }
 ];
 
 const roleColors = {
