@@ -402,7 +402,7 @@ const aboutData = [
         name: "Elbert Manansala",
         role: "Documentation",
         desc: "Contributes to documentation and project notes, helping keep the whole team aligned.",
-        image: "images/Manansala3.png"
+        image: "images/Manansala4.png"
     }
 ];
 
