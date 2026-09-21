@@ -668,7 +668,7 @@ const timelineData = [
           { date: "2026", title: "1ST SEMESTER",
       desc: "Coming Soon",
       owner: "4TH YEAR", role: "SENIOR" },
-          { date: "2026", title: "1ST SEMESTER",
+          { date: "2026", title: "2ND SEMESTER",
       desc: "Coming Soon",
       owner: "4TH YEAR", role: "SENIOR" }
 ];
