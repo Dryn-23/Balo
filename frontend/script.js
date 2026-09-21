@@ -648,23 +648,23 @@ buildGallery();
 // Documentation (pink), Backend (green), Frontend UX/UI (blue). Leave role out for a neutral color.
 const timelineData = [
     { date: "2024", title: "1ST SEMESTER",
-      desc: "The five balorants agents are picked, roles are assigned and the project scope is written down.",
+      desc: "Done",
       owner: "1ST YEAR", role: "FRESHMAN" },
     { date: "2025", title: "2ND SEMESTER",
-      desc: "Register and login API, token authentication and the database go live.",
-      owner: "1ST YEAR", role: "Backend" },
+      desc: "Done",
+      owner: "1ST YEAR", role: "FRESHMAN" },
     { date: "2025", title: "1ST SEMESTER",
-      desc: "The hero animation, agent stats and portrait bar come together.",
-      owner: "2ND YEAR", role: "Frontend UX/UI" },
+      desc: "Done",
+      owner: "2ND YEAR", role: "SEMI SENIOR" },
     { date: "2025", title: "2ND SEMESTER",
-      desc: "The frontend talks to the server, profiles load and sessions are handled.",
-      owner: "2ND YEAR", role: "Backend" },
+      desc: "Done",
+      owner: "2ND YEAR", role: "SEMI SENIOR" },
     { date: "2026", title: "1ST SEMESTER",
-      desc: "Build notes, the gallery and About Us are finished and everything is tested on phones.",
-      owner: "3RD YEAR", role: "Documentation" },
+      desc: "Ongoing",
+      owner: "3RD YEAR", role: "SEMI SENIOR" },
     { date: "2026", title: "2ND SEMESTER",
-      desc: "The full squad ships the finished build.",
-      owner: "3RD YEAR", role: "Backend" }
+      desc: "Coming Soon",
+      owner: "3RD YEAR", role: "SEMI SENIOR" }
 ];
 
 (function buildTimeline() {
