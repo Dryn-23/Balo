@@ -662,13 +662,13 @@ const timelineData = [
     { date: "2026", title: "1ST SEMESTER",
       desc: "Ongoing",
       owner: "3RD YEAR", role: "SEMI SENIOR" },
-    { date: "2026", title: "2ND SEMESTER",
+    { date: "2027", title: "2ND SEMESTER",
       desc: "Coming Soon",
       owner: "3RD YEAR", role: "SEMI SENIOR" },
-          { date: "2026", title: "1ST SEMESTER",
+          { date: "2027", title: "1ST SEMESTER",
       desc: "Coming Soon",
       owner: "4TH YEAR", role: "SENIOR" },
-          { date: "2026", title: "2ND SEMESTER",
+          { date: "2028", title: "2ND SEMESTER",
       desc: "Coming Soon",
       owner: "4TH YEAR", role: "SENIOR" }
 ];
