@@ -67,7 +67,7 @@ const rolesDescription = {
 const agentInformations = {
     Maratas: {
         role: "Documentation",
-        description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia.",
+        description: "  ",
         fullBody: "images/Maratas2.png",
         fullBody_s: "images/Maratas2.png",
         fullBody_b: "images/Maratas2.png",
@@ -78,7 +78,7 @@ const agentInformations = {
     },
     Garin: {
         role: "Backend",
-        description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia.",
+        description: "  ",
         fullBody: "images/Garin4.png",
         fullBody_s: "images/Garin4.png",
         fullBody_b: "images/Garin4.png",
@@ -89,7 +89,7 @@ const agentInformations = {
     },
     SanJuan: {
         role: "Frontend UX/UI",
-        description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia.",
+        description: "   ",
         fullBody: "images/SanJuan4.png",
         fullBody_s: "images/SanJuan4.png",
         fullBody_b: "images/SanJuan4.png",
@@ -100,7 +100,7 @@ const agentInformations = {
     },
     Pat: {
         role: "Backend",
-        description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia..",
+        description: "  ",
         fullBody: "images/Pat3.png",
         fullBody_s: "images/Pat3.png",
         fullBody_b: "images/Pat3.png",
@@ -111,7 +111,7 @@ const agentInformations = {
     },
     Manansala: {
         role: "Documentation",
-        description: "    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, odio accusamus laborum libero facere sapiente error ducimus cum nemo ipsum quo illo aliquam corporis in. Illo repellendus fuga odio quia.",
+        description: "  ",
         fullBody: "images/Manansala2.png",
         fullBody_s: "images/Manansala2.png",
         fullBody_b: "images/Manansala2.png",
@@ -384,7 +384,7 @@ const aboutData = [
         name: "Edrian Garin",
         role: "Backend",
         desc: "Handles the backend logic that powers the site, focusing on structure and reliability behind the scenes.",
-        image: "images/Garin4.png"
+        image: "images/Garin5.png"
     },
     {
         name: "Romejay SanJuan",
@@ -402,7 +402,7 @@ const aboutData = [
         name: "Elbert Manansala",
         role: "Documentation",
         desc: "Contributes to documentation and project notes, helping keep the whole team aligned.",
-        image: "images/Manansala2.png"
+        image: "images/Manansala3.png"
     }
 ];
 
@@ -664,7 +664,13 @@ const timelineData = [
       owner: "3RD YEAR", role: "SEMI SENIOR" },
     { date: "2026", title: "2ND SEMESTER",
       desc: "Coming Soon",
-      owner: "3RD YEAR", role: "SEMI SENIOR" }
+      owner: "3RD YEAR", role: "SEMI SENIOR" },
+          { date: "2026", title: "1ST SEMESTER",
+      desc: "Coming Soon",
+      owner: "4TH YEAR", role: "SENIOR" },
+          { date: "2026", title: "1ST SEMESTER",
+      desc: "Coming Soon",
+      owner: "4TH YEAR", role: "SENIOR" }
 ];
 
 (function buildTimeline() {
