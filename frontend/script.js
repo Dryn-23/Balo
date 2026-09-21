@@ -1028,11 +1028,11 @@ const timelineData = [
 // Leave a link as "" to hide it. Add more platforms by adding a key here
 // and a label in socialLabels below.
 const socialLinks = [
-    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://instagram.com/your-username", github: "https://github.com/Dryn-23" }, // Maratas
-    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://instagram.com/your-username", github: "https://github.com/Dryn-23" }, // Maratas
-    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://instagram.com/your-username", github: "https://github.com/Dryn-23" }, // Maratas
-    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://instagram.com/your-username", github: "https://github.com/Dryn-23" }, // Maratas
-    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://instagram.com/your-username", github: "https://github.com/Dryn-23" } // Maratas
+    { facebook: "https://www.facebook.com/denmark.maratas.18", instagram: "https://www.instagram.com/wan.chooo/", github: "https://github.com/Dryn-23" }, // Maratas
+    { facebook: "https://www.facebook.com/edrian.garin.52", instagram: "https://www.instagram.com/dre.grin/", github: "https://github.com/Dryn-23" }, // Garin
+    { facebook: "https://www.facebook.com/romejaysanjuan.skz10", instagram: "https://www.instagram.com/dodey.sj/", github: "https://github.com/Dryn-23" }, // SanJuan
+    { facebook: "https://www.facebook.com/justin.tpat", instagram: "https://www.instagram.com/kyl.vibin/", github: "https://github.com/Dryn-23" }, // Pat
+    { facebook: "https://www.facebook.com/elbert.manansala.9", instagram: "https://www.instagram.com/baby_bbert/", github: "https://github.com/Dryn-23" } // Elbert
 ];
 
 const socialLabels = {
