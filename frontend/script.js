@@ -518,7 +518,8 @@ const galleryData = [
     { src: "images/Gallery21.png",   size:"tall"},
     { src: "images/Gallery18.png",   name: "Elbert Manansala",  role: "Documentation" },
     { src: "images/Gallery23.png",   },
-    { src: "images/Gallery22.png",   }
+    { src: "images/Gallery22.png",   },
+     { src: "images/Gallery24.png",   }
 ];
 
 const roleColors = {
