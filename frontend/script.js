@@ -508,7 +508,7 @@ const galleryData = [
     { src: "images/Gallery8.png",   },
     { src: "images/Gallery9.png",   },
         { src: "images/Gallery10.png",   size: "big"  },
-    { src: "images/Gallery12.png",   name: "Porol",  role: "UI/UX" ,       size: "big" },
+    { src: "images/Gallery23.png",   name: "Porol",  role: "UI/UX" ,       size: "big" },
     { src: "images/Gallery11.png", name: "Denmark Maratas",  role: "Documentation"  },
     { src: "images/Pat4.png",       name: "Kyle Justin Pat",  role: "Backend" },
     { src: "images/Gallery15.png",   name: "Kyle Justin Pat",  role: "Backend", size: "tall" },
@@ -517,7 +517,7 @@ const galleryData = [
     { src: "images/Gallery20.png",   name: "Denmark Maratas",  role: "Documentation" , },
     { src: "images/Gallery21.png",   size:"tall"},
     { src: "images/Gallery18.png",   name: "Elbert Manansala",  role: "Documentation" },
-    { src: "images/Gallery23.png",   },
+    { src: "images/Gallery12.png",   },
     { src: "images/Gallery22.png",   },
      { src: "images/Gallery24.png",   }
 ];
