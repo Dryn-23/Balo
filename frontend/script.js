@@ -517,6 +517,7 @@ const galleryData = [
     { src: "images/Gallery20.png",   name: "Denmark Maratas",  role: "Documentation" , },
     { src: "images/Gallery21.png",   size:"tall"},
     { src: "images/Gallery18.png",   name: "Elbert Manansala",  role: "Documentation" },
+    { src: "images/Gallery23.png",   },
     { src: "images/Gallery22.png",   }
 ];
 
