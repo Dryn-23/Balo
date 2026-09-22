@@ -107,7 +107,7 @@ const agentInformations = {
         portrait: "images/Pat.png",
         gradientName: "gekko-state",
         gradientDirection: "diagonal",
-        stats: { intel: 90, stealth: 75, control: 40, utility: 65 }
+        stats: { intel: 90, stealth: 75, control: 100, utility: 65 }
     },
     Manansala: {
         role: "Documentation",
@@ -514,7 +514,7 @@ const galleryData = [
     { src: "images/Gallery15.png",   name: "Kyle Justin Pat",  role: "Backend", size: "tall" },
     { src: "images/Gallery19.png", size: "big"  },
     { src: "images/Gallery16.png", name: "Romejay SanJuan",  role: "Frontend UX/UI"  },
-    { src: "images/Gallery13.png",   name: "Porol",  role: "UI/UX" , },
+    { src: "images/Gallery20.png",   name: "Denmark Maratas",  role: "Documentation" , },
     { src: "images/Gallery17.png",   },
     { src: "images/Gallery18.png",   name: "Elbert Manansala",  role: "Documentation" }
 ];
